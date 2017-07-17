@@ -1,0 +1,27 @@
+.btn-logout{
+  margin-right: 0.5em;
+  border-color: gray;
+  margin-top: 0.4em;
+  color: gray;
+}
+.btn-logout:hover {
+  border-color: white;
+  margin-top: 0.4em;
+  color: white;
+}
+body{
+  background-color:#FAFAFA;
+}
+
+.logout-text{
+  color: white;
+  display: inline-block;
+  margin-right: 1em;
+}
+.footnote{
+  color:white;
+  background-color: #333;
+  margin-top: 1em;
+  border-radius: 2px;
+  padding: 0.5em;
+}

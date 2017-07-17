@@ -1,0 +1,23 @@
+*.sw*
+*~
+
+# Logs and databases #
+######################
+*.log
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+run.sh
+
+dist/
+.tmp/
+node_modules/
+public/vendor/

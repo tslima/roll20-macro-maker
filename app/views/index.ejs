@@ -1,0 +1,37 @@
+<!doctype html>
+<html ng-app="roll20macromaker">
+	<head>
+		<meta name="viewport" content="width=device-width">
+		<meta charset="UTF-8">
+		<!--build:css css/index.min.css -->
+		<link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.css">
+		<link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap-theme.css">
+		<link rel="stylesheet" href="css/main.css">
+		<!-- endbuild -->
+	</head>
+	<body class="container">
+		<header class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
+			<a class="navbar-brand" href="#">Roll20 Macro Maker</a>
+		<%if (usuarioLogado.length > 0) { %>
+		<div class="text-right"><div class="logout-text">
+			Logado como: <span id="usuario-logado"><%=usuarioLogado %></span></div>
+			<a class="btn btn-logout" href="/logout">Logout</a></div>
+		<% } %>
+	</header>
+
+		<div ng-view></div>
+		<footer class="footnote">
+		   &#169; MIT License
+		</footer>
+		<!--build:js js/index.min.js -->
+		<script src="vendor/angular/angular.js"></script>
+		<script src="vendor/angular-route/angular-route.js"></script>
+		<script src="vendor/angular-resource/angular-resource.js"></script>
+		<script src="js/main.js"></script>
+		<script src="js/services/InterceptorService.js"></script>
+		<script src="js/services/IsAuthenticatedService.js"></script>
+		<script src="js/directives/SelectOnClick.js"></script>
+		<script src="js/controllers/MacroMakerController.js"></script>
+		<!-- endbuild -->
+	</body>
+</html>
