@@ -27,14 +27,24 @@
      </div>
    </div>
      <div class="form-group row">
-       <label for="check{{attackn.id}}" class="col-sm-2 col-form-label">Hit</label>
+       <label for="hit{{attackn.id}}" class="col-sm-2 col-form-label">Hit</label>
      <div class="col-sm-4">
-      <input type="text" class="form-control" id="check{{attackn.id}}" placeholder="1d20+2" ng-model="attackn.hit">
+      <input type="text" class="form-control" id="hit{{attackn.id}}" placeholder="+2" ng-model="attackn.hit">
     </div>
+    <label for="crthit{{attackn.id}}" class="col-sm-2 col-form-label">Crit Hit</label>
+    <div class="col-sm-4">
+    <input type="text" class="form-control" id="crthit{{attackn.id}}" placeholder="17" ng-model="attackn.crithit">
+    </div>
+  </div>
+    <div class="form-group row">
     <label for="damage{{attackn.id}}" class="col-sm-2 col-form-label">Damage</label>
   <div class="col-sm-4">
    <input type="text" class="form-control" id="damage{{attackn.id}}" placeholder="1d8+4" ng-model="attackn.damage">
  </div>
+ <label for="critdamage{{attackn.id}}" class="col-sm-2 col-form-label">Crit Damage</label>
+<div class="col-sm-4">
+<input type="text" class="form-control" id="critdamage{{attackn.id}}" placeholder="1d8+4" ng-model="attackn.critdamage">
+</div>
 
        </div>
    </fieldset>
@@ -61,9 +71,7 @@
     </div>
 </form>
 <div class="row">
-<textarea rows="5" class="form-control" readonly="true" select-on-click>
-  {{attacktemplate.texto}}
-</textarea>
+<textarea rows="5" class="form-control" readonly="true" select-on-click>{{attacktemplate.texto}}</textarea>
 </div>
   </div>
   <div class="col-sm-6">
@@ -175,6 +183,13 @@
       </div>
     </div>
 
+    <div class="form-group row">
+       <label for="spelldamage" class="col-sm-2 col-form-label">Spell Damage</label>
+       <div class="col-sm-10">
+        <input type="text" class="form-control" id="spelldamage" placeholder="1d4+1" ng-model="spell.damage">
+      </div>
+    </div>
+
     <div class="form-group">
       <label for="spellnotes">Notes:</label>
      <textarea class="form-control" id="spellnotes" rows="5" placeholder="notes" ng-model="spell.notes"></textarea>
@@ -195,9 +210,7 @@
 </form>
 
 <div class="row">
-<textarea rows="5" class="form-control" readonly="true" select-on-click>
-  {{spell.template}}
-</textarea>
+<textarea rows="5" class="form-control" readonly="true" select-on-click>{{spell.template}}</textarea>
 </div>
 
   </div>

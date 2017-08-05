@@ -9,17 +9,19 @@ angular.module('roll20macromaker').controller('MacroMakerController',
 
 			for (var i = 0; i < $scope.num_atttacks; i++){
 				if ($scope.attacks[i].name.length > 0 && $scope.attacks[i].hit.length > 0 && $scope.attacks[i].damage.length > 0) {
-				template+= " {{attack" + (i+1) + "=" +  $scope.attacks[i].name + ": [[ "
-				+ $scope.attacks[i].hit + " ]] }} {{damage"+ (i+1) + "=[[ " +$scope.attacks[i].damage+ " ]]}} "
+				template+= " {{attack" + (i+1) + "=" +  $scope.attacks[i].name + ": [[ {d20cs>" + $scope.attacks[i].crithit +
+				"}" + $scope.attacks[i].hit + " ]] }} {{fumbleroll=Fumble: [[ d20 ]] }} {{damage"+ (i+1) +
+				"=[[ " +$scope.attacks[i].damage+ " ]]}} {{critconfirm"+(i+1)+"=Crit!:[[1d20"+
+				$scope.attacks[i].hit +"]]}} {{critdmg"+(i+1)+"=+[[" + $scope.attacks[i].critdamage + "]] crit dmg }} "
 				}
 			}
 
 			if ($scope.attack.notes.length > 0){
-				template+=" {{notes=" + $scope.attack.notes +"}} "
+				template+=" {{notes=" + $scope.attack.notes.replace(/(\r\n|\n|\r)/gm," ") +"}} "
 			}
 
 			$scope.attacktemplate = {
-				texto: template
+				texto: template.trim()
 			}
 		}
 
@@ -70,6 +72,7 @@ angular.module('roll20macromaker').controller('MacroMakerController',
 				duration:"",
 				savingthrow:"",
 				resistence:"",
+				damage:"",
 				notes:"",
 				template:""
 			}
@@ -91,10 +94,12 @@ angular.module('roll20macromaker').controller('MacroMakerController',
 
 			template+="}} {{Casting Time:= " + $scope.spell.casttime +
 			"}} {{Range:= " + $scope.spell.range + "}} {{Target:= " +
-			$scope.spell.target + "}} {{Duration:= " + $scope.spell.duration + "}} {{Saving Throw:= " + $scope.spell.savingthrow + " }} {{Spell Resist.:=" + $scope.spell.resistence + "}} {{notes=" +
-			$scope.spell.notes.replace(/(\r\n|\n|\r)/gm,"") +"}}";
+			$scope.spell.target + "}} {{Duration:= " + $scope.spell.duration + "}} {{Saving Throw:= "
+			+ $scope.spell.savingthrow + " }} {{Spell Resist.:="
+			+ $scope.spell.resistence + "}} {{damage=[["+ $scope.spell.damage +"]]}} {{notes=" +
+			$scope.spell.notes.replace(/(\r\n|\n|\r)/gm," ") +"}}";
 
-			$scope.spell.template = template;
+			$scope.spell.template = template.trim()
 
 		}
 
