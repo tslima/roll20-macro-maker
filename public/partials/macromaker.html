@@ -1,217 +1,243 @@
 <div class="row">
   <div class="col-sm-6">
     <form>
-    <h4> Attack Template</h4>
-    <div class="form-group row">
-       <label for="attackName" class="col-sm-2 col-form-label">Attack Name</label>
-       <div class="col-sm-10">
-        <input type="text" class="form-control" id="attackName" placeholder="Full Attack" ng-model="attack.name">
+      <h4> Attack Template</h4>
+      <div class="form-group row">
+        <label for="attackName" class="col-sm-2 col-form-label">Attack Name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="attackName" placeholder="Full Attack" ng-model="attack.name">
+        </div>
       </div>
-    </div>
 
-    <div class="checkbox">
-    <label>
+      <div class="form-group form-inline row">
+        <div class="checkbox col-sm-4">
+          <label>
     <input type="checkbox" ng-model="attack.onlygm"> Only to GM
     </label>
-    </div>
+        </div>
 
+        <div class="checkbox col-sm-4">
+          <label>
+    <input type="checkbox" ng-model="attack.flank"> Flank Dialog
+    </label>
+        </div>
 
+        <div class="checkbox col-sm-4">
+          <label>
+    <input type="checkbox" ng-model="attack.pwattack"> Power Attack
+    </label>
+        </div>
 
-
-    <fieldset  data-ng-repeat="attackn in attacks">
-      <div class="form-group row">
-      <h5> Attack {{attackn.id}}</h5>
-        <label for="attackn{{attackn.id}}" class="col-sm-2 col-form-label">Attack Name</label>
-      <div class="col-sm-10">
-       <input type="text" class="form-control" id="attackn{{attackn.id}}" placeholder="Great Axe" ng-model="attackn.name">
-     </div>
-   </div>
-     <div class="form-group row">
-       <label for="hit{{attackn.id}}" class="col-sm-2 col-form-label">Hit</label>
-     <div class="col-sm-4">
-      <input type="text" class="form-control" id="hit{{attackn.id}}" placeholder="+2" ng-model="attackn.hit">
-    </div>
-    <label for="crthit{{attackn.id}}" class="col-sm-2 col-form-label">Crit Hit</label>
-    <div class="col-sm-4">
-    <input type="text" class="form-control" id="crthit{{attackn.id}}" placeholder="17" ng-model="attackn.crithit">
-    </div>
-  </div>
-    <div class="form-group row">
-    <label for="damage{{attackn.id}}" class="col-sm-2 col-form-label">Damage</label>
-  <div class="col-sm-4">
-   <input type="text" class="form-control" id="damage{{attackn.id}}" placeholder="1d8+4" ng-model="attackn.damage">
- </div>
- <label for="critdamage{{attackn.id}}" class="col-sm-2 col-form-label">Crit Damage</label>
-<div class="col-sm-4">
-<input type="text" class="form-control" id="critdamage{{attackn.id}}" placeholder="1d8+4" ng-model="attackn.critdamage">
-</div>
-
-       </div>
-   </fieldset>
-
-   <div class="form-group">
-     <label for="attacknotes">Notes:</label>
-    <textarea class="form-control" id="attacknotes" rows="5" placeholder="notes" ng-model="attack.notes"></textarea>
-   </div>
-     <div class="form-group row">
-       <div class="col-sm-3">
-      <button class="btn btn-primary" ng-click="addAttack()">Add Attack</button>
-    </div>
-
-      <div class="col-sm-3">
-     <button class="btn btn-warning" ng-click="removeAttack()">Remove Attack</button>
-   </div>
-     <div class="col-sm-3">
-    <button class="btn btn-danger pull-right" ng-click="attackClear()">Clear</button>
-  </div>
-      <div class="col-sm-3">
-        <button  class="btn btn-primary pull-right" ng-click="geraAttack()">Generate</button>
       </div>
 
+      <fieldset data-ng-repeat="attackn in attack.attacks">
+        <div class="form-group row">
+          <h5> Attack {{attackn.id}}</h5>
+          <label for="attackn{{attackn.id}}" class="col-sm-2 col-form-label">Attack Name</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="attackn{{attackn.id}}" placeholder="Great Axe" ng-model="attackn.name">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="hit{{attackn.id}}" class="col-sm-2 col-form-label">Hit</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="hit{{attackn.id}}" placeholder="+2" ng-model="attackn.hit">
+          </div>
+          <label for="crthit{{attackn.id}}" class="col-sm-2 col-form-label">Crit Hit</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="crthit{{attackn.id}}" placeholder="17" ng-model="attackn.crithit">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="damage{{attackn.id}}" class="col-sm-2 col-form-label">Damage</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="damage{{attackn.id}}" placeholder="1d8+4" ng-model="attackn.damage">
+          </div>
+          <label for="critdamage{{attackn.id}}" class="col-sm-2 col-form-label">Crit Damage</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="critdamage{{attackn.id}}" placeholder="1d8+4" ng-model="attackn.critdamage">
+          </div>
+
+        </div>
+      </fieldset>
+
+      <div class="form-group">
+        <label for="attacknotes">Notes:</label>
+        <textarea class="form-control" id="attacknotes" rows="5" placeholder="notes" ng-model="attack.notes"></textarea>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-3">
+          <button class="btn btn-primary" ng-click="addAttack()">Add Attack</button>
+        </div>
+
+        <div class="col-sm-3">
+          <button class="btn btn-warning" ng-click="removeAttack()">Remove Attack</button>
+        </div>
+        <div class="col-sm-3">
+          <button class="btn btn-danger pull-right" ng-click="attackClear()">Clear</button>
+        </div>
+        <div class="col-sm-3">
+          <button class="btn btn-primary pull-right" ng-click="geraAttack()">Generate</button>
+        </div>
+
+      </div>
+    </form>
+    <div class="row">
+      <textarea rows="5" class="form-control" readonly="true" select-on-click> {{attack.template}} </textarea>
     </div>
-</form>
-<div class="row">
-<textarea rows="5" class="form-control" readonly="true" select-on-click>{{attacktemplate.texto}}</textarea>
-</div>
   </div>
   <div class="col-sm-6">
     <h4> Spell Template</h4>
 
-<form>
-    <div class="form-group row">
-       <label for="spellname" class="col-sm-2 col-form-label">Spell Name</label>
-       <div class="col-sm-10">
-        <input type="text" class="form-control" id="spellname" placeholder="Magic Missle" ng-model="spell.name">
+    <form>
+      <div class="form-group row">
+        <label for="spellname" class="col-sm-2 col-form-label">Spell Name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="spellname" placeholder="Magic Missle" ng-model="spell.name">
+        </div>
       </div>
-    </div>
 
-    <div class="checkbox">
-    <label>
+      <div class="checkbox">
+        <label>
     <input type="checkbox" ng-model="spell.onlygm"> Only to GM
     </label>
-    </div>
+      </div>
 
-    <div class="form-group row">
-       <label for="school" class="col-sm-2 col-form-label">School</label>
-       <div class="col-sm-10">
-        <input type="text" class="form-control" id="school" placeholder="Evocation [Force]" ng-model="spell.school">
+      <div class="form-group row">
+        <label for="school" class="col-sm-2 col-form-label">School</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="school" placeholder="Evocation [Force]" ng-model="spell.school">
+        </div>
       </div>
-    </div>
 
-    <div class="form-group row">
-       <label for="spelllevel" class="col-sm-2 col-form-label">Spell Level</label>
-       <div class="col-sm-10">
-        <input type="text" class="form-control" id="spelllevel" placeholder="Src/Wiz 1" ng-model="spell.level">
+      <div class="form-group row">
+        <label for="spelllevel" class="col-sm-2 col-form-label">Spell Level</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="spelllevel" placeholder="Src/Wiz 1" ng-model="spell.level">
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-12">
-        <h4>Components</h4>
+      <div class="row">
+        <div class="col-sm-12">
+          <h4>Components</h4>
+        </div>
       </div>
-    </div>
-    <div class="form-group form-inline row">
-      <div class="checkbox col-sm-2">
-    <label>
+      <div class="form-group form-inline row">
+        <div class="checkbox col-sm-2">
+          <label>
       <input type="checkbox" ng-model="spell.compV"> V
     </label>
-  </div>
-  <div class="checkbox col-sm-2">
-    <label>
+        </div>
+        <div class="checkbox col-sm-2">
+          <label>
       <input type="checkbox" ng-model="spell.compS"> S
     </label>
-  </div>
-  <div class="checkbox col-sm-2">
-    <label>
+        </div>
+        <div class="checkbox col-sm-2">
+          <label>
       <input type="checkbox" ng-model="spell.compM"> M
     </label>
-  </div>
-  <div class="checkbox col-sm-2">
-    <label>
+        </div>
+        <div class="checkbox col-sm-2">
+          <label>
       <input type="checkbox" ng-model="spell.compF"> F
     </label>
-  </div>
-  <div class="checkbox col-sm-2">
-    <label>
+        </div>
+        <div class="checkbox col-sm-2">
+          <label>
       <input type="checkbox" ng-model="spell.compFD"> FD
     </label>
-  </div>
-  <div class="checkbox col-sm-2">
-    <label>
+        </div>
+        <div class="checkbox col-sm-2">
+          <label>
       <input type="checkbox" ng-model="spell.compXP"> XP
     </label>
-  </div>
-    </div>
-    <div class="form-group row">
-       <label for="casttime" class="col-sm-2 col-form-label">Cast Time</label>
-       <div class="col-sm-10">
-        <input type="text" class="form-control" id="casttime" placeholder="1 std" ng-model="spell.casttime">
+        </div>
       </div>
-    </div>
-
-    <div class="form-group row">
-       <label for="spellrange" class="col-sm-2 col-form-label">Range</label>
-       <div class="col-sm-10">
-        <input type="text" class="form-control" id="spellrange" placeholder="Medium  (100 ft. + 10 ft./level)" ng-model="spell.range">
+      <div class="form-group row">
+        <label for="casttime" class="col-sm-2 col-form-label">Cast Time</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="casttime" placeholder="1 std" ng-model="spell.casttime">
+        </div>
       </div>
-    </div>
 
-    <div class="form-group row">
-       <label for="spelltarget" class="col-sm-2 col-form-label">Targets</label>
-       <div class="col-sm-10">
-        <input type="text" class="form-control" id="spelltarget" placeholder="Up to five creatures, no two of which can be more than 15 ft. apart" ng-model="spell.target">
+      <div class="form-group row">
+        <label for="spellrange" class="col-sm-2 col-form-label">Range</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="spellrange" placeholder="Medium  (100 ft. + 10 ft./level)" ng-model="spell.range">
+        </div>
       </div>
-    </div>
 
-    <div class="form-group row">
-       <label for="spellduration" class="col-sm-2 col-form-label">Duration</label>
-       <div class="col-sm-10">
-        <input type="text" class="form-control" id="spellduration" placeholder="Instantaneous" ng-model="spell.duration">
+      <div class="form-group row">
+        <label for="spelltarget" class="col-sm-2 col-form-label">Targets</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="spelltarget" placeholder="Up to five creatures, no two of which can be more than 15 ft. apart" ng-model="spell.target">
+        </div>
       </div>
-    </div>
 
-    <div class="form-group row">
-       <label for="spellsavingthrow" class="col-sm-2 col-form-label">Saving Throw</label>
-       <div class="col-sm-10">
-        <input type="text" class="form-control" id="spellsavingthrow" placeholder="None" ng-model="spell.savingthrow">
+      <div class="form-group row">
+        <label for="spellduration" class="col-sm-2 col-form-label">Duration</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="spellduration" placeholder="Instantaneous" ng-model="spell.duration">
+        </div>
       </div>
-    </div>
 
-    <div class="form-group row">
-       <label for="spellresistence" class="col-sm-2 col-form-label">Spell Resistence</label>
-       <div class="col-sm-10">
-        <input type="text" class="form-control" id="spellresistence" placeholder="Yes" ng-model="spell.resistence">
+      <div class="form-group row">
+        <label for="spellsavingthrow" class="col-sm-2 col-form-label">Saving Throw</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="spellsavingthrow" placeholder="None" ng-model="spell.savingthrow">
+        </div>
       </div>
-    </div>
 
-    <div class="form-group row">
-       <label for="spelldamage" class="col-sm-2 col-form-label">Spell Damage</label>
-       <div class="col-sm-10">
-        <input type="text" class="form-control" id="spelldamage" placeholder="1d4+1" ng-model="spell.damage">
+      <div class="form-group row">
+        <div class="checkbox col-sm-2">
+          <label>
+            <input type="checkbox" ng-model="spell.resistence"> Spell Resistence
+      </label>
+        </div>
+        <label for="casterlevel" class="col-sm-2 col-form-label">Caster Level</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" id="casterlevel" placeholder="1" ng-model="spell.casterlevel">
+        </div>
       </div>
-    </div>
 
-    <div class="form-group">
-      <label for="spellnotes">Notes:</label>
-     <textarea class="form-control" id="spellnotes" rows="5" placeholder="notes" ng-model="spell.notes"></textarea>
-    </div>
-
-    <div class="form-group row">
-      <div class="col-sm-6 " ></div>
-      <div class="col-sm-3 " >
-        <button class="btn btn-danger pull-right" ng-click="spellClear()">Clear</button>
+      <div class="form-group row">
+        <label for="spellhit" class="col-sm-2 col-form-label">Hit</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" id="spellhit" placeholder="5" ng-model="spell.hit">
+        </div>
+        <label for="spelldamage" class="col-sm-2 col-form-label">Spell Damage</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" id="spelldamage" placeholder="1d4+1" ng-model="spell.damage">
+        </div>
       </div>
-     <div class="col-sm-3 " >
-       <button class="btn btn-primary pull-right" ng-click="generateSpell()">Generate</button>
-     </div>
-   </div>
 
+      <div class="form-group row">
+        <label for="spellconcentration" class="col-sm-2 col-form-label">Concen tration</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="spellconcentration" placeholder="4 Leave in blank to use character value" ng-model="spell.concentration">
+        </div>
+      </div>
 
+      <div class="form-group">
+        <label for="spellnotes">Notes:</label>
+        <textarea class="form-control" id="spellnotes" rows="5" placeholder="notes" ng-model="spell.notes"></textarea>
+      </div>
 
-</form>
+      <div class="form-group row">
+        <div class="col-sm-6 "></div>
+        <div class="col-sm-3 ">
+          <button class="btn btn-danger pull-right" ng-click="spellClear()">Clear</button>
+        </div>
+        <div class="col-sm-3 ">
+          <button class="btn btn-primary pull-right" ng-click="generateSpell()">Generate</button>
+        </div>
+      </div>
 
-<div class="row">
-<textarea rows="5" class="form-control" readonly="true" select-on-click>{{spell.template}}</textarea>
-</div>
+    </form>
+
+    <div class="row">
+      <textarea rows="5" class="form-control" readonly="true" select-on-click>{{spell.template}}</textarea>
+    </div>
 
   </div>
 </div>
