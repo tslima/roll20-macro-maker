@@ -16,6 +16,8 @@ Icon?
 ehthumbs.db
 Thumbs.db
 run.sh
+server.crt
+server.key
 
 dist/
 .tmp/

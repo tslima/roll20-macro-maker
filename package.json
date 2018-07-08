@@ -18,7 +18,9 @@
     "express": "^4.14.0",
     "express-load": "^1.1.15",
     "express-session": "^1.14.2",
+    "fs": "0.0.1-security",
     "helmet": "^3.3.0",
+    "https": "^1.0.0",
     "method-override": "^2.3.6",
     "mongo-sanitize": "^1.0.0",
     "mongodb": "^2.2.19",
@@ -26,7 +28,8 @@
     "mongoose-findorcreate": "^0.1.2",
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.1",
-    "passport-github": "^1.1.0"
+    "passport-github": "^1.1.0",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "grunt": "^1.0.1",
